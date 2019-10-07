@@ -1,22 +1,20 @@
 import React from 'react';
-import {Button,message} from 'antd';
-// import {HashRouter,Route,Switch} from 'react-router-dom'
+import {BrowserRouter,Route,Switch} from 'react-router-dom'
+import Login from './pages/login/login';
+import Admin from './pages/admin/admin';
 
 export default class AppRouter extends React.Component{
     constructor(props){
         super(props);
     }
-    handleClick=()=>{
-        message.success('这是一个成功的按钮');
-    }
     render(){
         return(
-            <div>
-                <Button type="primary" onClick={this.handleClick.bind(this)}>按钮</Button>
-            </div>
-            // <HashRouter>
-            //     <Route path="/" component={} />
-            // </HashRouter>
+            <BrowserRouter>
+                <Switch>
+                    <Route path="/admin/" component={Admin} />
+                    <Route path="/" component={Login} />
+                </Switch>
+            </BrowserRouter>
         )
     }
 }
